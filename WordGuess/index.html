@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Slayer Guessing!</title>
+
+    <style>
+        body {
+            background-image: url("assets/slayer-featured.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @font-face {
+            font-family: "Slaytanic";
+            src: url("assets/Slaytanic.ttf");
+        }
+        .letter,.letter-button,div{
+            float: left;
+            font-size: 48px;
+            font-family: Slaytanic;
+            color: red;
+        }
+        .game{
+            position: absolute;
+            bottom: 0;
+            left: 12px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class = "container" id = "deaths">
+        Deaths &nbsp;
+    </div>
+
+    <div class = "container game">
+        <div class = "row no-gutters">
+            Song1 &nbsp;
+            <div id = "display" class = "col-auto d-flex align-items-center">
+            </div>
+        </div>
+        <div class = "row no-gutters">
+            <div id="letters" class = "col-auto d-flex align-items-center">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $( document ).ready(function() {
+            var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+            var songs = ["South of Heaven","Behind the Crooked Cross","Disciple","Raining Blood","Seasons in the Abyss","Spirit in Black","Reborn","Mandatory Suicide","I Hate You","Dead Skin Mask","Show No Mercy","Skeletons Of Society","Spill the Blood"]
+            var guesses = 5;
+            var song = songs[Math.floor(Math.random()*songs.length)];
+            var progression = [song.length];
+
+            function updateDeaths(){
+                $("#deaths").empty();
+                $("#deaths").html("Deaths &nbsp;");
+                for (var i = 0; i < guesses; i++){
+                    var image = $("<img>");
+                    image.attr("src","assets/hand.png");
+                    image.attr("width","48");
+                    image.attr("height","48");
+                    $("#deaths").append(image)
+                }
+            }
+            updateDeaths();
+
+            for (var i = 0; i < progression.length; i++){
+                progression[i] = " ";
+            }
+
+            for (var i = 0; i < letters.length; i++) {
+                var letterBtn = $("<button>");
+                letterBtn.addClass("letter-button btn");
+                letterBtn.attr("data-letter", letters[i]);
+                letterBtn.text(letters[i]);
+                $("#letters").append(letterBtn);
+            }
+
+            $(".letter-button").on("click", function() {
+                console.log(song);
+                if (song.toUpperCase().includes($(this).attr("data-letter"))){
+                    $("#display").empty();
+                    for (var i = 0; i < song.length; i++){
+                        if (song.toUpperCase().charAt(i)==$(this).attr("data-letter")){
+                            progression[i]=$(this).attr("data-letter");
+                        }
+                    }
+
+                    var newLetter = $("<div>");
+                    newLetter.addClass("letter");
+                    newLetter.text(progression.join());
+                    $("#display").append(newLetter);
+                }else{
+                    guesses--;
+                    updateDeaths();
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

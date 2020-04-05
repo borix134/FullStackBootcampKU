@@ -1,0 +1,104 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #EAF4FC;
+    color: #030D15;
+    font-size: 16px;
+}
+a{
+    color: #030D15;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+#maincontent{
+    background-color: #D5EAF9;
+    display: flex;
+    margin: 24px;
+    padding: 12px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border-radius: 16px;
+}
+#maincontent > p{
+    width: 640px;
+}
+#maincontent > img{
+    margin-right: 24px;
+}
+img{
+    border-radius: 16px;
+}
+#navbar{
+    font-size: 20px;
+    border-radius: 16px;
+    background-color: #D5EAF9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 24px;
+    padding: 12px;
+}
+#links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+#links > a{
+    font-size: 20px;
+}
+.navLink{
+    margin-left: 24px;
+}
+.card{
+    width: 200px;
+    height: 348px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+#message{
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 80px;
+    background-color: #EAF4FC;
+    color: #030D15;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    border-color: #D5EAF9;
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+button{
+    background-color: #EAF4FC;
+    color: #030D15;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 16px;
+    outline: none;
+}
+button:hover{
+    text-decoration: underline;
+}
+#email{
+    width: 320px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    background-color: #EAF4FC;
+    color: #030D15;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 16px;
+    outline: none;
+}

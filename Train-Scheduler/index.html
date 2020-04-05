@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <title>
+            Train Scheduler
+        </title>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+        <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id = "header">
+            <h1>
+                Any Time is Train Time!
+            </h1>
+            <h2>
+                Choo Choo. Chee Chee.
+            </h2>
+        </div>
+        <h3>
+            Current train schedule:
+        </h3>
+        <div>
+            <center>
+                <table id = "trains">
+                    <tr>
+                        <td>
+                            Train Name
+                        </td>
+                        <td>
+                            Destination
+                        </td>
+                        <td>
+                            Frequency (min)
+                        </td>
+                        <td>
+                            Next Arrival
+                        </td>
+                        <td>
+                            Minutes Away
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div>
+            <h3>
+                Add Train:
+            </h3>
+            <form>
+                <ul style="list-style-type:none">
+                    <li>Train Name:</li>
+                    <li><input type="text" id="trainName"></li>
+                    <li>Destination:</li>
+                    <li><input type="text" id="destination"></li>
+                    <li>First Train Time:</li>
+                    <li><input type="text" id="fTrainTime"></li>
+                    <li>Frequency:</li>
+                    <li><input type="text" id="frequency"></li>
+                    <br>
+                    <li><button id="submit">Submit</button></li>
+                </ul>
+            </form>
+        </div>
+        <script src="fb.js"></script>
+    </body>
+</html>

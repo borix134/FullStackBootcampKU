@@ -1,0 +1,154 @@
+html {
+    position: relative;
+    min-height: 100%;
+}   
+
+body {
+    background: url("../images/download-1.jpg");
+}
+
+@font-face {
+    font-family: "8bit";
+    src: url("../fonts/font.ttf");
+}   
+
+#header {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: rgb(180, 72, 162);
+    font-family: "8bit",'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+    width: 100%;
+    height: 75px;
+    padding-top: 10px;
+    line-height: 50px;
+}
+
+h2 {
+    padding-top: 10px;
+    font-family: "8bit";
+}
+
+p {
+    color: rgb(245, 9, 186);
+    font-size: 15px;
+    background-color: rgb(16, 19, 17);
+    border: solid pink 2px;
+    font-family: "8bit";
+}
+
+button {
+    font-family: "8bit";
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    background-color: rgb(180, 72, 162);
+    font-family: "8bit",'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+}
+
+td, th {
+    background-color: rgb(16, 19, 17);
+    color: rgb(224, 26, 175);
+    font-size: 12px;
+    font-family: "8bit";
+}
+
+.score {
+    background-color: rgb(16, 19, 17);
+    border: solid pink 2px;
+}
+
+#startScreen {
+    background-repeat: no-repeat;
+    width: 35%;
+    margin: 0 auto;
+    font-family: "8bit";
+}
+
+.startBox {
+    padding-top: 130px;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+
+#gameOver {
+    background-repeat: no-repeat;
+    width: 35%;
+    margin: 0 auto;
+}
+
+.endBox {
+    padding-top: 10px;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+
+#api {
+    background-color: rgb(180, 72, 162);
+    color: white;
+}
+
+h3 {
+    background-color: rgb(180, 72, 162);
+    height: 60px;
+    color: white;
+    font-family: "8bit";
+    font-size: 30px;
+    text-align: center;
+    line-height: 55px;
+}
+
+h4 {
+    background-color: rgb(180, 72, 162);
+    height: 60px;
+    color: white;
+    font-family: "8bit";
+    font-size: 30px;
+    text-align: center;
+    line-height: 55px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 120px;
+    overflow: auto;
+    }
+
+.table-wrapper-scroll-y {
+    display: block;
+    }
+
+.click {
+    margin-top: 1px;
+}
+
+.ptag, #endGameScore {
+    margin-top: 15px;
+}
+
+input {
+    background-color: rgb(16, 19, 17);
+    color: white;
+    font-size: 15px;
+    font-family: "8bit";
+    width: 250px;
+}
+
+.submit {
+    margin-top: 10px;
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+}

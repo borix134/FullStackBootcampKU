@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <title>Asteroid Game</title>
+
+    <!-- Firebase Javascript Link -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+
+</head>
+
+<body>
+    <div id="gameOver">
+        <div class="endBox">
+            <h4>Game Over</h4>
+            <button class="click" id="api">Click for PIC</button>
+            <div id="poster"></div>
+            <p id="endGameScore">Here's your score </p>
+            <button type="button" class="btn btn-dark playAgain">Play Again</button>
+            <p class="ptag">Submit your name and play again</p>
+            <input id = "name"></input>
+            <button type = "button" class = "btn btn-dark submit">Submit</button>
+        </div>
+    </div>
+
+    <div id="startscreen">
+        <div class="startBox">
+            <h3>Asteroids</h3>
+            <hr />
+            <p>Prepare to be amazed</p>
+            <br />
+            <p>Click To Start</p>
+            <button type="button" id="start-btn" class="btn btn-dark">Start</button>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row header">
+            <div class="col-12">
+                <h1>Asteroids</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8 game-screen" id="game-screen">
+
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-4 info">
+                <p> This is an Asteroid game in which you have one simple goal.
+                    Use the arrow keys to move and spacebar to fire at oncoming asteroids,
+                    the game will continue till your spaceship gets hit by an asteroid. 
+                    Hit the play again to try and beat your score.
+                </p>
+
+                <div class="table-wrapper-scroll-y my-custom-scrollbar col-6-md score">
+                    <table class="table" id = "scoreboard">
+                        <thead>
+                            <tr>
+                                <th scope="col">Leader</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <h2>Asteroids</h2>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+        </script>
+
+    <!-- Dominique's Firebase and Soundcloud Javascript link below -->
+    <script src="./assets/javascript/firebase-soundcloud.js"></script>
+
+    <script src="./assets/javascript/jquery.js"></script>
+
+    <!-- Nick's Phaser Javascript Code -->
+    <script src="assets/javascript/game.js"></script>
+
+
+</body>
+
+</html>

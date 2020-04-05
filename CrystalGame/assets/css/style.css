@@ -1,0 +1,27 @@
+#instructions{
+    width: 600px;
+    background: beige;
+    padding: 4px;
+    margin: 8px;
+}
+#display{
+    width: 600px;
+    font-size: 24px;
+    padding: 4px;
+    margin: 8px;
+    background: beige;
+}
+.crystal{
+    width: 150px;
+    height: 150px;
+}
+#crystals{
+    margin: 8px;
+}
+body {
+    background-image: url("../images/bg.jpg");
+
+}
+p, h1,div{
+    font-family: 'Lato', sans-serif;
+}

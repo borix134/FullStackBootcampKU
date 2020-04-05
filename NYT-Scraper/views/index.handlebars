@@ -1,0 +1,19 @@
+<hr>
+<h3>Articles</h3>
+{{#each articles}}
+<div>
+    <h2>
+        {{this.Headline}}
+    </h2>
+    <p>
+        {{this.Summary}}
+    </p>
+    <a href={{this.Url}}>
+        Link
+    </a>
+    <br>
+    <a href="/comment/{{this._id}}">
+        Comments
+    </a>
+</div>
+{{/each}}

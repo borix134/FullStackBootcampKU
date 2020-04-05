@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <style>
+        .container{
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        img{
+            margin: 12px;
+        }
+        .searchButton{
+            margin-top: 12px;
+        }
+    </style>
+
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-10">
+                    <input type="text" class="form-control" id="search" placeholder="Search">
+                </div>
+                <div class = "col-2">
+                    <button class="btn btn-dark" type="submit" id = "go">Search</button>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-12" id = "searchButtons">
+                    <button class="btn btn-dark searchButton">Penguins</button>
+                    <button class="btn btn-dark searchButton">Will Ferrel</button>
+                    <button class="btn btn-dark searchButton">Ferraris</button>
+                    <button class="btn btn-dark searchButton">Heavy Metal</button>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-12" id = "images">
+                    
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var url;
+
+            $(document).on("click","img",function(event){
+                console.log("test")
+                if ($(this).attr("src") === $(this).attr("still")){
+                    $(this).attr("src",$(this).attr("moving"))
+                }else{
+                    $(this).attr("src",$(this).attr("still"))                  
+                }
+            });
+
+            $("#go").click(function(event){
+                event.preventDefault();
+                url = "http://api.giphy.com/v1/gifs/search?q="+$("#search").val().trim()+
+                "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+                $.ajax({
+                    url: url,
+                    method: "GET"
+                }).then(function(res){
+                    for (var i = 0; i<res.data.length; i++){
+                        $("#images").prepend(
+                            $("<img>")
+                                .attr("src",res.data[i].images.fixed_width_still.url)
+                                .attr("still",res.data[i].images.fixed_width_still.url)
+                                .attr("moving",res.data[i].images.fixed_width.url)
+                        )
+                    }
+                });
+                $("#searchButtons").append(
+                    $("<button>")
+                        .addClass("btn btn-dark searchButton")
+                        .text($("#search").val().trim())
+                )
+            });
+
+            $(document).on("click",".searchButton",function(event){
+                event.preventDefault();
+                url = "http://api.giphy.com/v1/gifs/search?q="+$(this).text().trim()+
+                "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+                $.ajax({
+                    url: url,
+                    method: "GET"
+                }).then(function(res){
+                    for (var i = 0; i<res.data.length; i++){
+                        $("#images").prepend(
+                            $("<img>")
+                                .attr("src",res.data[i].images.fixed_width_still.url)
+                                .attr("still",res.data[i].images.fixed_width_still.url)
+                                .attr("moving",res.data[i].images.fixed_width.url)
+                        )
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>

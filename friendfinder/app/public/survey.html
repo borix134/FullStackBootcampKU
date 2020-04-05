@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    </head>
+    <body>
+        <a href="/">
+            Back to home
+        </a>
+        <br><br>
+        <form>
+            Name: <input id="name">
+            <table cellspacing="10">
+                <tr>
+                    <td></td>
+                    <td>Strongly Dsiagree</td>
+                    <td>Disagree</td>
+                    <td>Neutral</td>
+                    <td>Agree</td>
+                    <td>Strongly Agree</td>
+                </tr>
+                <tr>
+                    <td>Pineapple belongs on pizza.</td>
+                    <td><input type="radio" name="pineapple" value="1"></td>
+                    <td><input type="radio" name="pineapple" value="2"></td>
+                    <td><input type="radio" name="pineapple" value="3"></td>
+                    <td><input type="radio" name="pineapple" value="4"></td>
+                    <td><input type="radio" nam="pineapple" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I play a lot of videogames.</td>
+                    <td><input type="radio" name="videogames" value="1"></td>
+                    <td><input type="radio" name="videogames" value="2"></td>
+                    <td><input type="radio" name="videogames" value="3"></td>
+                    <td><input type="radio" name="videogames" value="4"></td>
+                    <td><input type="radio" name="videogames" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I consume fun amounts of alcohol.</td>
+                    <td><input type="radio" name="alcohol" value="1"></td>
+                    <td><input type="radio" name="alcohol" value="2"></td>
+                    <td><input type="radio" name="alcohol" value="3"></td>
+                    <td><input type="radio" name="alcohol" value="4"></td>
+                    <td><input type="radio" name="alcohol" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I enjoy music deeply.</td>
+                    <td><input type="radio" name="music" value="1"></td>
+                    <td><input type="radio" name="music" value="2"></td>
+                    <td><input type="radio" name="music" value="3"></td>
+                    <td><input type="radio" name="music" value="4"></td>
+                    <td><input type="radio" name="music" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I am an avid church-goer.</td>
+                    <td><input type="radio" name="church" value="1"></td>
+                    <td><input type="radio" name="church" value="2"></td>
+                    <td><input type="radio" name="church" value="3"></td>
+                    <td><input type="radio" name="church" value="4"></td>
+                    <td><input type="radio" name="church" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I am a dog person.</td>
+                    <td><input type="radio" name="dog" value="1"></td>
+                    <td><input type="radio" name="dog" value="2"></td>
+                    <td><input type="radio" name="dog" value="3"></td>
+                    <td><input type="radio" name="dog" value="4"></td>
+                    <td><input type="radio" name="dog" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I play sports.</td>
+                    <td><input type="radio" name="sports" value="1"></td>
+                    <td><input type="radio" name="sports" value="2"></td>
+                    <td><input type="radio" name="sports" value="3"></td>
+                    <td><input type="radio" name="sports" value="4"></td>
+                    <td><input type="radio" name="sports" value="5"></td>
+                </tr>  
+                <tr>
+                    <td>I enjoy coding.</td>
+                    <td><input type="radio" name="coding" value="1"></td>
+                    <td><input type="radio" name="coding" value="2"></td>
+                    <td><input type="radio" name="coding" value="3"></td>
+                    <td><input type="radio" name="coding" value="4"></td>
+                    <td><input type="radio" name="coding" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I am an extrovert.</td>
+                    <td><input type="radio" name="extrovert" value="1"></td>
+                    <td><input type="radio" name="extrovert" value="2"></td>
+                    <td><input type="radio" name="extrovert" value="3"></td>
+                    <td><input type="radio" name="extrovert" value="4"></td>
+                    <td><input type="radio" name="extrovert" value="5"></td>
+                </tr>
+                <tr>
+                    <td>I watch a lot of Netflix.</td>
+                    <td><input type="radio" name="netflix" value="1"></td>
+                    <td><input type="radio" name="netflix" value="2"></td>
+                    <td><input type="radio" name="netflix" value="3"></td>
+                    <td><input type="radio" name="netflix" value="4"></td>
+                    <td><input type="radio" name="netflix" value="5"></td>
+                </tr>         
+            </table>
+            <button id="submit">Submit</button>
+        </form>
+        <div>
+            <span id="match"></span>
+        </div>
+        <script>
+            $("#submit").on("click",function(event){
+                event.preventDefault();
+                const user={
+                    name: $("#name").val(),
+                    pinapple: $("input[name='pineapple']:checked").val(),
+                    videogames: $("input[name='videogames']:checked").val(),
+                    alcohol: $("input[name='alcohol']:checked").val(),
+                    music: $("input[name='music']:checked").val(),
+                    church: $("input[name='church']:checked").val(),
+                    dog: $("input[name='dog']:checked").val(),
+                    sports: $("input[name='sports']:checked").val(),
+                    coding: $("input[name='coding']:checked").val(),
+                    extrovert: $("input[name='extrovert']:checked").val(),
+                    netflix: $("input[name='netflix']:checked").val()
+                }
+                $.post("/api/friends",user,function(data){
+                    var results = "<br>";
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            results += key + " : " + data[key] + "<br>";
+                        }
+                    }
+                    $("#match").html("Your new friend: " + '\n' + results);
+                });
+            });
+        </script>
+    </body>
+</html>

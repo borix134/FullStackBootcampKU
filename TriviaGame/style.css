@@ -1,0 +1,25 @@
+body {
+    background-image: url("bg.jpg");
+    font-family: 'New Rocker', cursive;
+    color: white;
+}
+h1 {
+    font-family: 'New Rocker', cursive;
+    color: white;
+    font-size: 48px;
+}
+h2 {
+    background-color: black;
+}
+#question{
+    height: 400px;
+    font-size: 32px;
+}
+button{
+    font-family: 'New Rocker', cursive;
+    color: white;
+    background-color: black;
+    font-size: 32px;
+    margin-bottom: 12px;
+    border: 0px;
+}

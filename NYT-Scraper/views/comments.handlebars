@@ -1,0 +1,35 @@
+<hr>
+<h3>Comments</h3>
+<form>
+    Username <br>
+    <input id="username" /> <br>
+    Comment <br>
+    <textarea id="comment"></textarea> <br>
+    <button id="submit">
+        Submit
+    </button>
+</form> <br>
+<div>
+    <ul>
+        {{#each comments}}
+            <li>
+                Username: <b><{{this.username}}</b> <br>
+                {{this.text}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#submit").on("click", function(event){
+            console.log($("#username").val())
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{{this.postRoute}}",
+                data: {username: $("#username").val(), text: $("#comment").val()}
+            });
+        });
+    });
+</script>

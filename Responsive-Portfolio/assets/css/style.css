@@ -1,0 +1,74 @@
+.toplinks{
+    width: 960px;
+    margin: 0 auto;   
+    height: 64px;
+}
+.toplinksbackground{
+    width: 100%;
+    height: 64px;
+    background-color: #DDF8E8;
+    float: left;
+    padding: 0%;
+}
+body{
+    background-color: #CDD5D1;
+}
+#name{
+    background-color: #946E83;
+    color: #DDF8E8;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    float: left;
+    height: 100%;
+    font-weight: bold;
+    padding-left: 32px;
+    padding-right: 32px;
+    line-height: 70px;
+    font-size: 24px;
+}
+.links{
+    float: right;
+}
+.AboutContainer,.PortfolioContainer,.ContactContainer{
+    float: left;
+    margin-left: 32px;
+    font-size: 18px;
+    line-height: 70px;
+}
+a{
+    text-decoration: none;
+    color: #946E83;
+}
+.Content{
+    margin: auto;
+    width: 928px;
+    border-top: 16px solid #CDD5D1;
+    padding: 16px;
+    color: #946E83;
+    background-color: #DDF8E8;
+    line-height: 32px;
+}
+#image{
+    float: left;
+    margin: 16px;
+}
+#ContentText{
+    float: none;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    font-size: 16px;
+}
+.message{
+    width: 100%;
+    height: 200px;
+}
+.input{
+    width: 100%;
+}
+#submit{
+    background-color: #946E83;
+    color: #DDF8E8;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
